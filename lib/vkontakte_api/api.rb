@@ -22,6 +22,7 @@ module VkontakteApi
         response = Yajl::Parser.parse(body, :symbolize_keys => true)
         
         if response.has_key?(:error)
+          puts response.inspect 
           raise VkontakteApi::Error.new(response[:error])
         else
           response[:response]
